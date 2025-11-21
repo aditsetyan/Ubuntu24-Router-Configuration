@@ -5,7 +5,7 @@ Konfigurasi otomatis untuk menjadikan Ubuntu sebagai **Router Gateway** mengguna
 * **ens33 → WAN (DHCP / Internet)**
 * **ens34 → LAN (Static 192.168.5.1/24)**
 
-Script ini dibuat untuk mempermudah deployment lingkungan jaringan pada lab, virtualisasi (VMware/VirtualBox.
+Script ini dibuat untuk mempermudah deployment lingkungan jaringan pada lab atau virtualisasi (VMware/VirtualBox).
 
 ---
 
@@ -42,7 +42,7 @@ Script ini dibuat untuk mempermudah deployment lingkungan jaringan pada lab, vir
 ## 📂 Struktur Script
 
 ```
-router-gateway.sh
+router.sh
 ├── Update System
 ├── Configure Netplan
 ├── Enable IPv4 Forwarding
@@ -54,7 +54,7 @@ router-gateway.sh
 
 ---
 
-##  Kebutuhan Sistem
+## 🛠️ Kebutuhan Sistem
 
 | Komponen  | Minimal                              |
 | --------- | ------------------------------------ |
@@ -73,13 +73,13 @@ router-gateway.sh
 2. Jadikan file dapat dieksekusi:
 
 ```
-chmod +x router-gateway.sh
+chmod +x router.sh
 ```
 
 3. Jalankan dengan hak akses root:
 
 ```
-sudo router.sh
+sudo ./router.sh
 ```
 
 4. Verifikasi router berjalan:
@@ -120,4 +120,26 @@ systemctl status isc-dhcp-server
 
 ### 2. Cek IP Client
 
-Pasti
+Pastikan client mendapatkan IP:
+
+```
+192.168.5.100 – 192.168.5.200
+```
+
+### 3. Cek Internet Client
+
+```
+ping google.com
+```
+
+Jika berhasil → router dan NAT berfungsi.
+
+---
+
+## 📄 Lisensi
+
+Script ini bebas digunakan untuk keperluan edukasi, penelitian, dan produksi.
+
+---
+
+Dikembangkan oleh: Adit Setya Nugroho
